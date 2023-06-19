@@ -1,9 +1,8 @@
 CREATE TABLE Cars (
-VIN,
-Year,
-Model,
-customerID
-
+    VIN varchar(100),
+    ManufactureYear YEAR,
+    Model varchar(100),
+    PRIMARY KEY VIN
 );
 
 CREATE TABLE Customer (
@@ -13,12 +12,16 @@ CREATE TABLE Customer (
     Age,
     Occupation,
     Salary
+    PRIMARY KEY (PersonID);
+    FOREIGN KEY ();
 );
 
 CREATE TABLE Transactions (
-    Transaction ID, 
-    Customer ID,
-    car ID,
+    TransactionID int NOT NULL AUTO_INCREMENT, 
+    CustomerID varchar(100),
+    carID,
     Price,
-    Date of Purchase
+    Date
+    PRIMARY KEY (TransactionID),
+    FOREIGN KEY (CustomerID),
 );
