@@ -1,0 +1,1 @@
+INSERT INTO Cars ('WVW7771J7YW248023','2003','Jetta','')
