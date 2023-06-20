@@ -19,9 +19,9 @@ CREATE TABLE Customers (
 
 CREATE TABLE Transactions (
     TransactionID int NOT NULL AUTO_INCREMENT,
-    PersonID varchar(100),
+    PersonID int,
     Price int(100),
-    Dateofpurchase date,
+    Dateofpurchase varchar(100),
     PRIMARY KEY (TransactionID),
-    FOREIGN KEY (PersonID)
+    FOREIGN KEY (PersonID) REFERENCES Customer(PersonID)
 );
