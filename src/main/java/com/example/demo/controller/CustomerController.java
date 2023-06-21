@@ -2,14 +2,11 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Customer;
 import com.example.demo.service.CustomerService;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -20,13 +17,13 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-    @GetMapping("/getAll")
+    @GetMapping("")
     public List<Customer> getAllCustomers() {
 
         return customerService.listAll();
     }
 
-    @PostMapping("/add")
+    @PostMapping("")
     public String addCustomers(@RequestBody Customer customer) {
         customerService.save(customer);
         return "New Customer Added";
@@ -44,7 +41,7 @@ public class CustomerController {
     }
 
 
-    @PutMapping("/update")
+    @PutMapping("")
     public ResponseEntity<Customer> update(@RequestBody Customer customer) {
         try {
             customerService.save(customer);
@@ -58,7 +55,7 @@ public class CustomerController {
     @DeleteMapping("/{id}")
     public String delete(@PathVariable Integer id) {
         customerService.delete(id);
-        return "Deleted the customer with " + id;
+        return "Deleted the customer with id - " + id;
     }
 
 }
