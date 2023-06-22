@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import java.math.BigInteger;
 
 @Entity
-@Table(name = "car")
 public class Car {
 
     @Id

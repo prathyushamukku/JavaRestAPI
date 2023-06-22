@@ -3,9 +3,9 @@ package com.example.demo.model;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import com.example.demo.model.Customer;
 
 @Entity
-@Table(name = "transactions")
 public class Transactions {
 
     @Id
@@ -13,11 +13,11 @@ public class Transactions {
     private Integer tid;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "pid", referencedColumnName = "pid")
-    private Customer pid;
+//    @JoinColumn(name = "pid")
+    private Customer cust_id;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "vin", referencedColumnName = "vin")
+//    @JoinColumn(name = "vin", referencedColumnName = "vin")
     private Car vin;
     private Integer price;
     private Date date_of_purchase;
@@ -33,12 +33,12 @@ public class Transactions {
         this.tid = tid;
     }
 
-    public Customer getPid() {
-        return pid;
+    public Customer getCust_id() {
+        return cust_id;
     }
 
-    public void setPid(Customer pid) {
-        this.pid = pid;
+    public void setCust_id(Customer cust_id) {
+        this.cust_id = cust_id;
     }
 
     public Car getVin() {
@@ -69,8 +69,7 @@ public class Transactions {
     public String toString() {
         return "Transactions{" +
                 "tid=" + tid +
-                ", pid=" + pid +
-                ", vin=" + vin +
+                ", cust_id=" + cust_id +
                 ", price=" + price +
                 ", date_of_purchase=" + date_of_purchase +
                 '}';
